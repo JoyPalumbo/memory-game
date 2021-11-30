@@ -111,7 +111,7 @@ return (
                 )
             })}
         </div>
-        <Modal show={show} close={hideModal} />
+        <Modal show={show} close={hideModal} score={points}/>
         </div>
     </div>
 )
