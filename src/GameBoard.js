@@ -85,6 +85,7 @@ return cardsChosenIds.includes(idx) || openCards.includes(image)
 
 const startOver = () =>  {
     setMoves(0)      
+    setImagesArray(shuffledArray)
     setCardsChosenIds([])        
     setCardsChosen([])        
     setPoints(0)        
