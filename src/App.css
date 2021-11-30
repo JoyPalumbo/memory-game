@@ -2,7 +2,46 @@
 	object-fit: cover;
 	height: 180px;
 	width: 190px;
+  margin: 3px;
+  /* display: inline */
+  /* display: flex;                      
+  flex-wrap: wrap;                  
+  justify-content: space-around; */
 }
+
+.game-board {
+  display: grid;
+  grid-template-rows: 200px 200px 200px 200px;
+  grid-template-columns: 200px 200px 200px 200px;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+.box {
+  /* background: #444; */
+  border: 1px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: #AAA; */
+}
+
+
+
+
+/* .grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.blank {
+  background-color: rgb(49, 45, 45);
+  object-fit: cover;
+	height: 180px;
+	width: 190px;
+} */
 
 /* .App {
   text-align: center;

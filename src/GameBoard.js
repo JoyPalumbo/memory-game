@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { images } from './data';
-import {cat} from './images/cat1.jpg'
+import images from './data';
 
 function GameBoard(){
-    const BLANK_CARD = "https://progitek.no/privat/bp/wp-content/uploads/2021/09/pexels-pixabay-235985-scaled.jpg"
+
+    const BLANK_CARD = "https://media.istockphoto.com/photos/close-up-of-a-black-slate-texture-background-stone-grunge-texture-picture-id1268759368?b=1&k=20&m=1268759368&s=170667a&w=0&h=DIY4qKF5cJYL4uO8C2OoxUMWaw34_j_TPhT7tZXKw5U="
     const [imagesArray, setImagesArray] = useState([])    
     const [cardsChosen, setCardsChosen] = useState([])    
     const [cardsChosenIds, setCardsChosenIds] = useState([])    
@@ -69,10 +69,9 @@ return (
     <div className="board">
         <h2>Memory Game</h2>
         <h3>Points: {points}</h3>
-                    
-        {/* <img src={images[0]} alt="image" /> */}
+
         <button onClick={startOver}>Start Game</button>
-        <div className="row no-gutters">
+        <div className="game-board"> 
             {imagesArray.map((image, idx) => {
                 return (
                     <div className="col-4 col-lg-2" key={idx} onClick={() => flipImage(image, idx)}> 
