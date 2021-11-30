@@ -14,9 +14,8 @@ function GameBoard(){
     const [show, setShow] = useState(false)
 
 const createGameBoard = () => {
-    console.log("images", images[0])
     setMoves(0)
-    setPoints(1)
+    // setPoints(1)
     const imagesPopulated = images.concat(...images)
     const shuffledArray = shuffleArray(imagesPopulated)
     setImagesArray(shuffledArray)
