@@ -32,19 +32,20 @@ if(cardsChosenIds.length === 1 && cardsChosenIds[0] === idx){
     return
 }
 if(cardsChosen.length < 2) {
-    setCardsChosen(cardsChosen => cardsChosen.concat(idx))
+    setCardsChosen(cardsChosen => cardsChosen.concat(image))
     setCardsChosenIds(cardsChosenIds => cardsChosenIds.concat(idx))
+
+    if(cardsChosen.length === 1){
+        if(cardsChosen[0] === image){
+            setPoints(points => points + 1)
+            setOpenCards(openCards => openCards.concat([cardsChosen[0], image]))
+        }
+        setTimeout(() => {
+            setCardsChosenIds([])
+            setCardsChosen([])
+        }, 1100)
+        }
 }
-if(cardsChosen.length === 1){
-    if(cardsChosen[0] === image){
-        setPoints(points => points + 1)
-        setOpenCards(openCards => openCards.concat([cardsChosen[0], image]))
-    }
-    setTimeout(() => {
-        setCardsChosenIds([])
-        setCardsChosen([])
-     }, 1100)
-    }
 }
 
 const isCardChosen = (image, idx) => {
