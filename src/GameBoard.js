@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import images from './data';
 
-function GameBoard(){
 
+function GameBoard(){
     const BLANK_CARD = "https://media.istockphoto.com/photos/close-up-of-a-black-slate-texture-background-stone-grunge-texture-picture-id1268759368?b=1&k=20&m=1268759368&s=170667a&w=0&h=DIY4qKF5cJYL4uO8C2OoxUMWaw34_j_TPhT7tZXKw5U="
     const [imagesArray, setImagesArray] = useState([])    
     const [cardsChosen, setCardsChosen] = useState([])    
@@ -66,11 +66,11 @@ useEffect(() => {
 }, [])
 
 return (
-    <div className="board">
-        <h2>Memory Game</h2>
+    <div>
+        <h2>Joy's Cute Cat Memory Game</h2>
         <h3>Points: {points}</h3>
-
-        <button onClick={startOver}>Start Game</button>
+        <button className="button" onClick={startOver}>Start Game</button>
+        <div className="board">
         <div className="game-board"> 
             {imagesArray.map((image, idx) => {
                 return (
@@ -79,6 +79,7 @@ return (
                     </div>
                 )
             })}
+        </div>
         </div>
     </div>
 )
