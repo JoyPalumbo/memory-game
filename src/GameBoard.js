@@ -16,6 +16,7 @@ function GameBoard(){
 const createGameBoard = () => {
     console.log("images", images[0])
     setMoves(0)
+    setPoints(1)
     const imagesPopulated = images.concat(...images)
     const shuffledArray = shuffleArray(imagesPopulated)
     setImagesArray(shuffledArray)
@@ -84,7 +85,9 @@ return cardsChosenIds.includes(idx) || openCards.includes(image)
 
 
 const startOver = () =>  {
-    setMoves(0)      
+    setMoves(0) 
+    const imagesPopulated = images.concat(...images)
+    const shuffledArray = shuffleArray(imagesPopulated)     
     setImagesArray(shuffledArray)
     setCardsChosenIds([])        
     setCardsChosen([])        
