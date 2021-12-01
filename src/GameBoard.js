@@ -8,7 +8,7 @@ function GameBoard(){
     const [imagesArray, setImagesArray] = useState([])    
     const [cardsChosen, setCardsChosen] = useState([])    
     const [cardsChosenIds, setCardsChosenIds] = useState([])    
-    const [points, setPoints] = useState(0)
+    const [points, setPoints] = useState(1)
     const [openCards, setOpenCards] = useState([])
     const [moves, setMoves] = useState(0)
     const [show, setShow] = useState(false)
@@ -34,7 +34,7 @@ const shuffleArray = (array) => {
         const j = Math.floor(Math.random() * (i + 1));            
         [array[i], array[j]] = [array[j], array[i]];        
     }        
-    console.log(array)        
+        
     return array 
 }
 
@@ -59,6 +59,7 @@ if(cardsChosen.length < 2) {
         if(cardsChosen[0] === image){
             setPoints(points => points + 1)
             setOpenCards(openCards => openCards.concat([cardsChosen[0], image]))
+            console.log("opened cards", openCards.length)
         }
         setTimeout(() => {
             setCardsChosenIds([])
@@ -69,9 +70,7 @@ if(cardsChosen.length < 2) {
 }
 
 const gameEnd = () => {
-    console.log("clicking end game")
     if(points === 8) {
-        console.log("woooooooooooooo!!!!")
         let finalMoves = Math.round(moves / 2)
         setMoves(finalMoves)
         showModal()
@@ -102,7 +101,7 @@ useEffect(() => {
 return (
     <div>
         <h2>Joy's Cute Cat Memory Game</h2>
-        <h3>Points: {points}</h3>
+        {/* <h3>Points: {points}</h3> */}
         <button className="button" onClick={startOver}>Start Over</button>
         <div className="board">
         <div className="game-board"> 
