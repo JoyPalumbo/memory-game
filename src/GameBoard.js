@@ -72,7 +72,7 @@ const gameEnd = () => {
     console.log("clicking end game")
     if(points === 8) {
         console.log("woooooooooooooo!!!!")
-        let finalMoves = moves / 2
+        let finalMoves = Math.round(moves / 2)
         setMoves(finalMoves)
         showModal()
     }
@@ -114,7 +114,7 @@ return (
                 )
             })}
         </div>
-        <Modal show={show} close={hideModal} score={points}/>
+        <Modal show={show} close={hideModal} moves={moves}/>
         </div>
     </div>
 )

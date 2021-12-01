@@ -64,6 +64,7 @@ h3 {
 
 .modal {
   position: fixed;
+  text-align:center;
   top: 0;
   left: 0;
   width:100%;
@@ -81,6 +82,25 @@ h3 {
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+}
+
+.modal-button {
+  background-color: rgb(51, 48, 51);
+  padding: 8px 28px;
+  border-radius: 20px;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: white;
+  /* display: flex ; */
+  display: block;
+  margin: 5% 35%;
 }
 
 .display-block {
