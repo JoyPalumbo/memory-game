@@ -91,6 +91,39 @@ h3 {
   display: none;
 }
 
+@media only screen and (max-width: 600px) {
+
+  .game-board {
+    display: grid;
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px 100px;
+  }
+  .img-fixed {
+    object-fit: cover;
+    height: 90px;
+    width: 90px;
+    margin: 1px;
+  }
+
+  /* @media only screen and (max-width: 400px) {
+
+    .game-board {
+      display: grid;
+      grid-template-rows: 100px 100px 100px 100px;
+      grid-template-columns: 100px 100px 100px 100px;
+    }
+    .img-fixed {
+      object-fit: cover;
+      height: 50px;
+      width: 50px;
+      margin: 1px;
+    } */
+  
+  /* body {
+    background-color: lightblue;
+  } */
+}
+
 /* .grid {
   display: grid;
   grid-gap: 1px;
