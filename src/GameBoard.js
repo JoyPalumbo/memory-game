@@ -12,6 +12,7 @@ function GameBoard(){
     const [openCards, setOpenCards] = useState([])
     const [moves, setMoves] = useState(0)
     const [show, setShow] = useState(false)
+    const [score, setScore] = useState(0)
 
 const createGameBoard = () => {
     setMoves(0)
@@ -28,13 +29,35 @@ const moveCounter = () => {
     }
     
 
+const calculateScore = () => {   
+    console.log("why is score nto working", moves, points)
+    let calc = 0
+    let final = moves / 2
+    if (final < 12) {
+        calc = final * 5
+        console.log("calc", calc)
+        setScore(calc)
+        console.log("your score is: ", score)
+      } else if (final > 12 && final <= 24) {
+        calc = final * 2
+        console.log("Calc", calc)
+        setScore(calc)
+        console.log("your score is: ", score)
+      } else if (final > 24) {
+        calc = final * 1
+        console.log("calc", calc)
+        setScore(calc)
+        console.log("your score is: ", score)
+      }
+
+}
+
 
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {            
         const j = Math.floor(Math.random() * (i + 1));            
         [array[i], array[j]] = [array[j], array[i]];        
-    }        
-        
+    }                
     return array 
 }
 
@@ -58,6 +81,7 @@ if(cardsChosen.length < 2) {
     if(cardsChosen.length === 1){
         if(cardsChosen[0] === image){
             setPoints(points => points + 1)
+            console.log(points)
             setOpenCards(openCards => openCards.concat([cardsChosen[0], image]))
             console.log("opened cards", openCards.length)
         }
@@ -71,6 +95,7 @@ if(cardsChosen.length < 2) {
 
 const gameEnd = () => {
     if(points === 8) {
+        calculateScore()
         let finalMoves = Math.round(moves / 2)
         setMoves(finalMoves)
         showModal()
@@ -91,6 +116,8 @@ const startOver = () =>  {
     setCardsChosen([])        
     setPoints(0)        
     setOpenCards([])    
+    setScore(0)
+    setMoves(0)
 }
 
 
@@ -113,7 +140,7 @@ return (
                 )
             })}
         </div>
-        <Modal show={show} close={hideModal} moves={moves}/>
+        <Modal show={show} close={hideModal} moves={moves} score={score}/>
         </div>
     </div>
 )
