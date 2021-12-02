@@ -81,25 +81,29 @@ if(cardsChosen.length < 2) {
     if(cardsChosen.length === 1){
         if(cardsChosen[0] === image){
             setPoints(points => points + 1)
-            console.log(points)
+            console.log("our points: ", points)
             setOpenCards(openCards => openCards.concat([cardsChosen[0], image]))
             console.log("opened cards", openCards.length)
+            if(points === 7){
+                endGame()
+            }
         }
         setTimeout(() => {
             setCardsChosenIds([])
             setCardsChosen([])
         }, 1100)
         }
+        // if(points === 8){
+        //     endGame()
+        // }
 }
 }
 
-const gameEnd = () => {
-    if(points === 8) {
+const endGame = () => {
         calculateScore()
         let finalMoves = Math.round(moves / 2)
         setMoves(finalMoves)
         showModal()
-    }
 }
 
 const isCardChosen = (image, idx) => {
@@ -134,7 +138,7 @@ return (
         <div className="game-board"> 
             {imagesArray.map((image, idx) => {
                 return (
-                    <div className="col-4 col-lg-2" key={idx} onClick={() => {flipImage(image, idx); gameEnd()}}> 
+                    <div className="col-4 col-lg-2" key={idx} onClick={() => {flipImage(image, idx)}}> 
                     <img src={isCardChosen(image, idx) ? image : BLANK_CARD} alt="" className={`img-fluid img-fixed`} />
                     </div>
                 )
